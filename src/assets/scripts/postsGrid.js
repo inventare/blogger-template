@@ -12,7 +12,7 @@ function sliderposts(blog) {
     }
     for (var i = 0; i < maxpost; i += 1) {
         var post = blog.feed.entry[i];
-        var postCategory = post.category[0].term;
+        var postCategory = post.category && post.category.length > 0 ? post.category[0].term : 'Sem Categoria';
         var postTitle = post.title['$t'];
         var postLink = '';
         var postAuthor = post.author[0].name['$t'];
