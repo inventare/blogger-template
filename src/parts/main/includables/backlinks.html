@@ -1,0 +1,38 @@
+<a name='links'></a>
+<h4>
+    <data:post.backlinksLabel />
+</h4>
+<b:if cond='data:post.numBacklinks != 0'>
+    <dl class='comments-block' id='comments-block'>
+        <b:loop values='data:post.backlinks' var='backlink'>
+            <div class='collapsed-backlink backlink-control'>
+                <dt class='comment-title'>
+                    <span class='backlink-toggle-zippy'>&#160;</span>
+                    <a expr:href='data:backlink.url' rel='nofollow'>
+                        <data:backlink.title />
+                    </a>
+                    <b:include data='backlink' name='backlinkDeleteIcon' />
+                </dt>
+                <dd class='comment-body collapseable'>
+                    <data:backlink.snippet />
+                </dd>
+                <dd class='comment-footer collapseable'>
+                    <span class='comment-author'>
+                        <data:post.authorLabel />
+                        <data:backlink.author />
+                    </span>
+                    <span class='comment-timestamp'>
+                        <data:post.timestampLabel />
+                        <data:backlink.timestamp />
+                    </span>
+                </dd>
+            </div>
+        </b:loop>
+    </dl>
+</b:if>
+<p class='comment-footer'>
+    <a class='comment-link' expr:href='data:post.createLinkUrl'
+        expr:id='data:widget.instanceId + &quot;_backlinks-create-link&quot;' target='_blank'>
+        <data:post.createLinkLabel />
+    </a>
+</p>

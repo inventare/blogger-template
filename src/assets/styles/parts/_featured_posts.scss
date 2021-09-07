@@ -1,0 +1,178 @@
+.featured-post {
+    font-family: Ruda;
+
+    display: grid;
+    grid-template-areas: "featured-post1 featured-post2 featured-post3"
+                            "featured-post1 featured-post4 featured-post5"
+                            "featured-post1 featured-button featured-button";
+    grid-template-columns: 1fr 0.5fr 0.5fr;
+    grid-template-rows: 1fr 1fr 40px;
+
+    a {
+        color: #fff;
+    }
+
+    @mixin tag-common {
+        position: absolute;
+        background-color: #E7604A;
+        color: #FFF;
+        z-index: 99;
+        font-family: Ruda;
+    }
+
+    @mixin img-common {
+        object-fit: cover;
+        transition: all 1s ease-in-out;
+        -moz-transition: all 1s ease-in-out;
+        -o-transition: all 1s ease-in-out;
+    }
+    
+    .main-post {
+        grid-area: featured-post1;
+        position: relative;
+        aspect-ratio: 1.5;
+        @include bg-cover;
+
+        span {
+            @include tag-common;
+            top: 15px;
+            padding: 10px 20px;
+            font-size: 12px;
+            left: 15px;
+            border-radius: 25px;
+        }
+
+        img {
+            @include img-common;
+            height: 410px;
+            width: 100%;
+        }
+
+        .content {
+            position: absolute;
+            bottom: 7px;
+            width: 100%;
+            padding: 20px 20px 20px;
+            background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0,0,0,0)), color-stop(100%, rgba(0,0,0,1)));
+            background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+            background: -o-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+            background: -ms-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+            background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+
+            h3.entry-title {
+                color: #fff;
+                width: 100%;
+                text-shadow: 0px 1px 1px #000;
+                font-size: 25px;
+                font-family: Ruda;
+            }
+        }
+    }
+
+    .secondary-post {
+        position: relative;
+        @include bg-cover;
+        
+        &.c2 {
+            grid-area: featured-post2;
+
+            span {
+                background-color: #e55754!important;
+            }
+        }
+        &.c3 {
+            grid-area: featured-post3;
+                
+            span {
+                background-color: #ffc700!important;
+            }
+        }
+        &.c4 {
+            grid-area: featured-post4;
+            
+            span {
+                background-color: #01b9ff!important;
+            }
+        }
+        &.c5 {
+            grid-area: featured-post5;
+            
+            span {
+                background-color: #b277db!important;
+            }
+        }
+
+        span {
+            @include tag-common;
+            top: 0px;
+            font-size: 10px;
+            padding: 4px 10px;
+            border-radius: 0;
+            left: 0px;
+        }
+        
+        img {
+            @include img-common;
+            height: 180px;
+            width: 291px;
+        }
+
+        .content {
+            position: absolute;
+            bottom: 7px;
+            width: 100%;
+            padding: 20px 20px 20px;
+            background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0,0,0,0)), color-stop(100%, rgba(0,0,0,1)));
+            background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+            background: -o-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+            background: -ms-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+            background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+
+            h4 {
+                color: #fff;
+                width: 100%;
+                text-shadow: 0px 1px 1px #000;
+                font-family: Ruda;
+            }
+        }
+    }
+
+
+    .date-l {
+        color: #bbb;
+        font-weight: 400;
+        font-size: 12px;
+        float: left;
+        margin-right: 10px;
+    }
+
+    .date-r {
+        margin-left: auto;
+        color: #bbb;
+        font-weight: 400;
+        font-size: 12px;
+    }
+    
+    .date-l i, .date-r i {
+        margin-right: 5px;
+    }    
+
+    .feauterdButton {
+        grid-area: featured-button;
+
+        font-weight: 600;
+        font-size: 14px;
+
+        cursor: pointer;
+
+        background-color: #e7604a;
+        color: #fff !important;
+        text-decoration: none;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

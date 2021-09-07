@@ -1,0 +1,19 @@
+  <div class='comment-form'>
+    <a name='comment-form'></a>
+
+    <h4 id='comment-post-message'>
+        <data:postCommentMsg />
+    </h4>
+    <p>
+        <data:blogCommentMessage/>
+    </p>
+    <data:blogTeamBlogMessage/>
+    <a expr:href='data:post.commentFormIframeSrc' id='comment-editor-src'></a>
+    <iframe allowtransparency='true' class='blogger-iframe-colorize blogger-comment-from-post' frameborder='0' height='410' id='comment-editor' name='comment-editor' src='' width='100%'></iframe>
+    
+    <data:post.friendConnectJs/>
+    <data:post.cmtfpIframe/>
+    <script type='text/javascript'>
+        BLOG_CMT_createIframe(&#39;<data:post.appRpcRelayPath/>&#39;, &#39;<data:post.communityId/>&#39;);
+    </script>
+</div>

@@ -1,0 +1,81 @@
+<!-- posts -->
+<div class='blog-posts hfeed'>
+    <b:include data='top' name='status-message' />
+
+    <data:defaultAdStart />
+    <b:loop values='data:posts' var='post'>
+        <b:if cond='data:post.isDateStart'>
+            <b:if cond='data:post.isFirstPost == &quot;false&quot;'>
+                &lt;/div&gt;&lt;/div&gt;
+            </b:if>
+        </b:if>
+        <b:if cond='data:post.isDateStart'>
+            &lt;div class=&quot;date-outer&quot;&gt;
+        </b:if>
+        <b:if cond='data:post.dateHeader'>
+            <h2 class='date-header'><span>
+                    <data:post.dateHeader />
+                </span></h2>
+        </b:if>
+        <b:if cond='data:post.isDateStart'>
+            &lt;div class=&quot;date-posts&quot;&gt;
+        </b:if>
+        <div class='post-outer'>
+            <!-- Latest Post -->
+            <b:if cond='data:blog.url == data:blog.homepageUrl'>
+                <b:if cond='data:post.isFirstPost == &quot;true&quot;'>
+                    <div class='first-post-wrapper'>
+                        <div id='first-post'>
+                            <b:include data='post' name='post' />
+                        </div>
+                    </div>
+                    <b:else />
+                    <b:include data='post' name='post' />
+                </b:if>
+                <b:else />
+                <b:include data='post' name='post' />
+            </b:if>
+            <!-- Latest Post End-->
+            <b:if cond='data:blog.pageType == &quot;static_page&quot;'>
+                <b:include data='post' name='comment_picker' />
+            </b:if>
+            <b:if cond='data:blog.pageType == &quot;item&quot;'>
+                <b:include data='post' name='comment_picker' />
+            </b:if>
+        </div>
+        <b:if cond='data:post.includeAd'>
+            <b:if cond='data:post.isFirstPost'>
+                <data:defaultAdEnd />
+                <b:else />
+                <data:adEnd />
+            </b:if>
+            <div class='inline-ad'>
+                <data:adCode />
+            </div>
+            <data:adStart />
+        </b:if>
+    </b:loop>
+    <b:if cond='data:numPosts != 0'>
+        &lt;/div&gt;&lt;/div&gt;
+    </b:if>
+    <data:adEnd />
+</div>
+
+<!-- navigation -->
+<b:include name='nextprev'/>
+
+<b:if cond='data:top.showStars'>
+    <script src='//www.google.com/jsapi' type='text/javascript'></script>
+    <script type='text/javascript'>
+        google.load("annotations", "1", {"locale": "<data:top.languageCode/>"});
+        function initialize() {
+            google.annotations.setApplicationId(<data:top.blogspotReviews/>);
+            google.annotations.createAll();
+            google.annotations.fetch();
+        }
+        google.setOnLoadCallback(initialize);
+    </script>
+</b:if>
+<b:if cond='data:top.showDummy'>
+    <data:top.dummyBootstrap/>
+</b:if>

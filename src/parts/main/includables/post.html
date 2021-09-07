@@ -1,0 +1,156 @@
+<div class='post hentry mb-3'>
+    <b:if cond='data:blog.pageType == &quot;item&quot;'>
+        <div class='meta_container' style='position:relative;'></div>
+    </b:if>
+    
+    <b:if cond='data:blog.pageType == &quot;item&quot;'>
+        <b:if cond='data:post.title'>
+            <h1 class='post-title entry-title'>
+                <b:if cond='data:post.link'>       
+                    <a expr:href='data:post.link'><data:post.title/></a>    
+                <b:else/>
+                    <b:if cond='data:post.url'>
+                        <b:if cond='data:blog.url != data:post.url'>
+                            <a expr:href='data:post.url'><data:post.title/></a>
+                        <b:else/>
+                            <data:post.title/>
+                        </b:if>
+                    <b:else/>
+                        <data:post.title/>
+                    </b:if>
+                </b:if>
+            </h1>
+        </b:if>
+    <b:else/>
+        <b:if cond='data:blog.pageType == &quot;static_page&quot;'>
+            <b:if cond='data:post.title'>
+                <h2 class='post-title entry-title'>
+                    <b:if cond='data:post.link'>
+                        <a expr:href='data:post.link'><data:post.title/></a>  
+                    <b:else/>
+                        <b:if cond='data:post.url'>
+                            <b:if cond='data:blog.url != data:post.url'>
+                                <a expr:href='data:post.url'><data:post.title/></a>
+                            <b:else/>
+                                <data:post.title/>
+                            </b:if>
+                        <b:else/>
+                            <data:post.title/>
+                        </b:if>
+                    </b:if>
+                </h2>
+            </b:if>
+        </b:if>
+    </b:if>
+    
+    <b:if cond='data:blog.pageType == &quot;item&quot;'>
+        <div class='post-body entry-content' expr:id='&quot;post-body-&quot; + data:post.id'>
+            <data:post.body/>
+        </div>
+    <b:else/>
+        <b:if cond='data:blog.pageType == &quot;static_page&quot;'>
+            <div class='post-body entry-content' expr:id='&quot;post-body-&quot; + data:post.id'>
+                <data:post.body/>
+            </div>
+        <b:else/>
+            <div class='post-body entry-content post-thumb' expr:id='&quot;post-body-&quot; + data:post.id'>
+                <div expr:id='&quot;p&quot; + data:post.id'>
+                    <data:post.body/>
+                </div>
+                <div class='article_list_image' expr:id='&quot;q&quot; + data:post.id'></div>
+                <div class='article_list_content'>
+                    <h2 class='article_heading'>
+                        <a expr:href='data:post.url' expr:title='data:post.title' rel='bookmark' class="text-decoration-none">
+                            <data:post.title/>
+                        </a>
+                    </h2>
+                    <!-- Post Meta -->
+                    <div class='post_meta'>
+                        <ul>
+                            <li>
+                                <b:loop values='data:post.labels' var='label'>
+                                    <a class='ppost_label' expr:href='data:label.url' rel='tag'>
+                                        <data:label.name/>
+                                    </a>
+                                    <b:if cond='data:label.isLast != &quot;true&quot;'> </b:if>
+                                </b:loop>
+                            </li>
+                            <li>
+                                <i class='fa fa-clock-o'></i>
+                                <span>
+                                    <b:if cond='data:top.showTimestamp'>
+                                        Em
+                                        <b:if cond='data:post.url'>
+                                            <a class='timestamp-link' expr:href='data:post.url' rel='bookmark' title='permanent link'>
+                                                <abbr class='published' expr:title='data:post.timestampISO8601'><data:post.timestamp/></abbr>
+                                            </a>
+                                        </b:if>
+                                    </b:if>
+                                </span>
+                            </li>
+                            <li>
+                                <i class='fa fa-comment-o'></i>
+                                <span>
+                                    <a expr:href='data:post.addCommentUrl' expr:onclick='data:post.addCommentOnclick'>
+                                        <b:if cond='data:post.numComments == 0'>Fazer um comentário</b:if>
+                                        <b:if cond='data:post.numComments == 1'>1 Comentário</b:if>
+                                        <b:if cond='data:post.numComments &gt;= 2'><data:post.numComments/> Comentários</b:if>
+                                    </a>
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Post Meta End -->
+                    <div class='post_excerpt' expr:id='&quot;r&quot; + data:post.id'></div>
+                    <div class="d-flex flex-row justify-content-end">
+                        <a class='btn btn-inventare text-white' expr:href='data:post.url'>Continuar Lendo</a>
+                    </div>
+                </div>
+            </div>
+            <script type='text/javascript'>
+            createSummaryAndThumb("p<data:post.id/>", "q<data:post.id/>", "r<data:post.id/>", "<data:post.url/>");
+            </script>
+        </b:if>
+    </b:if>
+    
+    <div class='post-footer'>
+        <b:if cond='data:blog.pageType == &quot;item&quot;'>
+            <!-- SHARE POSTS -->
+            <div class='post_social_share'>
+                <div class='share_this_content'>
+                    <a class='social_share' expr:href='&quot;http://twitter.com/share?url=&quot; + data:post.url + &quot;&amp;title=&quot; + data:post.title' onclick='window.open(this.href, &apos;windowName&apos;, &apos;width=550, height=600, left=24, top=24, scrollbars, resizable&apos;); return false;' rel='nofollow' target='_blank'>
+                        <i class='icon-twitter'></i>
+                    </a>
+                    <a class='social_share' expr:href='&quot;http://www.stumbleupon.com/submit?url=&quot; + data:post.url + &quot;&amp;title=&quot; + data:post.title' onclick='window.open(this.href, &apos;windowName&apos;, &apos;width=550, height=600, left=24, top=24, scrollbars, resizable&apos;); return false;' rel='nofollow' target='_blank'>
+                        <i class='icon-stumbleupon'></i>
+                    </a>
+                    <a class='social_share' expr:href='&quot;http://reddit.com/submit?url=&quot; + data:post.url + &quot;&amp;title=&quot; + data:post.title' onclick='window.open(this.href, &apos;windowName&apos;, &apos;width=550, height=600, left=24, top=24, scrollbars, resizable&apos;); return false;' rel='nofollow' target='_blank'>
+                        <i class='icon-reddit'></i>
+                    </a>
+                    <a class='social_share' expr:href='&quot;http://digg.com/submit?phase=2&amp;url=&quot; + data:post.url + &quot;&amp;title=&quot;+ data:post.title + &quot;&amp;bodytext=&quot;+ data:post.snippet' onclick='window.open(this.href, &apos;windowName&apos;, &apos;width=550, height=600, left=24, top=24, scrollbars, resizable&apos;); return false;' rel='nofollow' target='_blank'>
+                        <i class='icon-digg'></i>
+                    </a>
+                    <a class='social_share' expr:href='&quot;http://delicious.com/post?url=&quot; + data:post.url + &quot;&amp;title=&quot;+ data:post.title + &quot;&amp;notes=&quot;+ data:post.snippet' onclick='window.open(this.href, &apos;windowName&apos;, &apos;width=550, height=600, left=24, top=24, scrollbars, resizable&apos;); return false;' rel='nofollow' target='_blank'>
+                        <i class='icon-delicious'></i>
+                    </a>
+                    <a class='social_share' expr:href='&quot;http://www.facebook.com/sharer.php?u=&quot; + data:post.url + &quot;&amp;title=&quot;+ data:post.title' onclick='window.open(this.href, &apos;windowName&apos;, &apos;width=550, height=600, left=24, top=24, scrollbars, resizable&apos;); return false;' rel='nofollow' target='_blank'>
+                        <i class='icon-facebook-square'></i>
+                    </a>
+                    <a class='social_share' expr:href='&quot;http://www.linkedin.com/shareArticle?mini=true&amp;url=&quot; + data:post.url + &quot;&amp;title=&quot;+ data:post.title' onclick='window.open(this.href, &apos;windowName&apos;, &apos;width=550, height=600, left=24, top=24, scrollbars, resizable&apos;); return false;' rel='nofollow' target='_blank'>
+                        <i class='icon-linkedin-square'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class='about_author_module'>
+                <h3 class='about_author_title'>Sobre o Autor</h3>
+                <div class='about_author_content'>
+                    <b:if cond='data:post.author == &quot;Eduardo Jose&quot;'>
+                        {% include 'authors/eduardo.html' %}
+                    </b:if>
+                    <div class='clr'></div>
+                </div>
+            </div>
+        </b:if>
+    </div>
+</div>

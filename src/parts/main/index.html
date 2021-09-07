@@ -1,0 +1,102 @@
+<b:section class='content' id='content' showaddelement='no'>
+    <b:widget id='Blog1' locked='true' title='Postagens no blog' type='Blog' version='1'>
+        <b:widget-settings>
+            <b:widget-setting name='showDateHeader'>false</b:widget-setting>
+            <b:widget-setting name='style.textcolor'>#bca772</b:widget-setting>
+            <b:widget-setting name='showShareButtons'>true</b:widget-setting>
+            <b:widget-setting name='authorLabel'>By</b:widget-setting>
+            <b:widget-setting name='showCommentLink'>true</b:widget-setting>
+            <b:widget-setting name='style.urlcolor'>#2c2c2c</b:widget-setting>
+            <b:widget-setting name='showAuthor'>false</b:widget-setting>
+            <b:widget-setting name='disableGooglePlusShare'>true</b:widget-setting>
+            <b:widget-setting name='style.linkcolor'>#3a3a3a</b:widget-setting>
+            <b:widget-setting name='style.unittype'>TextAndImage</b:widget-setting>
+            <b:widget-setting name='style.bgcolor'>#ffffff</b:widget-setting>
+            <b:widget-setting name='timestampLabel'>Postado em</b:widget-setting>
+            <b:widget-setting name='reactionsLabel'/>
+            <b:widget-setting name='showAuthorProfile'>false</b:widget-setting>
+            <b:widget-setting name='style.layout'>1x1</b:widget-setting>
+            <b:widget-setting name='showLabels'>true</b:widget-setting>
+            <b:widget-setting name='showLocation'>true</b:widget-setting>
+            <b:widget-setting name='showTimestamp'>true</b:widget-setting>
+            <b:widget-setting name='postsPerAd'>3</b:widget-setting>
+            <b:widget-setting name='showBacklinks'>false</b:widget-setting>
+            <b:widget-setting name='style.bordercolor'>#ffffff</b:widget-setting>
+            <b:widget-setting name='showInlineAds'>true</b:widget-setting>
+            <b:widget-setting name='showReactions'>false</b:widget-setting>
+        </b:widget-settings>
+
+        <b:includable id='main' var='top'>
+            {% include 'includables/main.html' %}
+        </b:includable>
+
+        <b:includable id='backlinkDeleteIcon' var='backlink'>
+            {% include 'includables/backlinkDeleteIcon.html' %}
+        </b:includable>
+
+        <b:includable id='backlinks' var='post'>
+            {% include 'includables/backlinks.html' %}
+        </b:includable>
+
+        <b:includable id='comment-form' var='post'>
+            {% include 'includables/comments/comment_form.html' %}
+        </b:includable>
+
+        <b:includable id='commentDeleteIcon' var='comment'>
+            {% include 'includables/comments/comment_delete_icon.html' %}
+        </b:includable>
+
+        <b:includable id='comment_count_picker' var='post'>
+            {% include 'includables/comments/comment_count_picker.html' %}
+        </b:includable>
+        
+        <b:includable id='comment_picker' var='post'>
+            {% include 'includables/comments/comment_picker.html' %}
+        </b:includable>
+        
+        <b:includable id='comments' var='post'>
+            {% include 'includables/comments/comments.html' %}
+        </b:includable>
+
+        <b:includable id='feedLinks'>
+            {% include 'includables/feedLinks.html' %}
+        </b:includable>
+
+        <b:includable id='feedLinksBody' var='links'>
+            {% include 'includables/feedLinksBody.html' %}
+        </b:includable>
+
+        <b:includable id='iframe_comments' var='post'>
+            {% include 'includables/iframe_comments.html' %}
+        </b:includable>
+
+        <b:includable id='nextprev'>
+            {% include 'includables/nextprev.html' %}
+        </b:includable>
+        
+        <b:includable id='post' var='post'>
+            {% include 'includables/post.html' %}
+        </b:includable>
+
+        <b:includable id='shareButtons' var='post'></b:includable>
+
+        <b:includable id='status-message'>
+            {% include 'includables/status-message.html' %}
+        </b:includable>
+
+        <b:includable id='threaded-comment-form' var='post'>
+            {% include 'includables/comments/threaded-comment-form.html' %}
+        </b:includable>
+        
+        <b:includable id='threaded_comment_css'></b:includable>
+                        
+        <b:includable id='threaded_comment_js' var='post'>
+            {% include 'includables/comments/threaded_comment_js.html' %}
+        </b:includable>
+
+        <b:includable id='threaded_comments' var='post'>
+            {% include 'includables/comments/threaded_comments.html' %}
+        </b:includable>
+
+    </b:widget>
+</b:section>

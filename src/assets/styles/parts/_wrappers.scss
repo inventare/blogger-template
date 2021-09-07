@@ -1,0 +1,12 @@
+.outer-wrapper {
+    @include flex-row-stretch;
+
+    .sidebar-wrapper {
+        width: 26.15%;
+        margin-left: 15px;
+    }
+
+    .main-wrapper {
+        flex: 1;
+    }
+}

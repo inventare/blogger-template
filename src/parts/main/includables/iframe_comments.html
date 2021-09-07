@@ -1,0 +1,10 @@
+<b:if cond='data:post.allowIframeComments'>
+    <script expr:src='data:post.iframeCommentSrc' type='text/javascript'></script>
+    <div class='cmt_iframe_holder' expr:data-href='data:post.canonicalUrl' expr:data-viewtype='data:post.viewType'></div>
+  
+    <b:if cond='data:post.embedCommentForm == &quot;false&quot;'>
+        <a expr:href='data:post.addCommentUrl' expr:onclick='data:post.addCommentOnclick'>
+            <data:postCommentMsg/>
+        </a>
+    </b:if>
+</b:if>

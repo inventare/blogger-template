@@ -1,0 +1,8 @@
+<div class='feed-links'>
+    <data:feedLinksMsg/>
+    <b:loop values='data:links' var='f'>
+        <a class='feed-link' expr:href='data:f.url' expr:type='data:f.mimeType' target='_blank'>
+            <data:f.name/> (<data:f.feedType/>)
+        </a>
+    </b:loop>
+</div>

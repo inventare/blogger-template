@@ -1,0 +1,11 @@
+<span expr:class='&quot;item-control &quot; + data:comment.adminClass'>
+    <b:if cond='data:showCmtPopup'>
+        <div class='goog-toggle-button'>
+            <div class='goog-inline-block comment-action-icon'></div>
+        </div>
+    <b:else/>
+        <a class='comment-delete' expr:href='data:comment.deleteUrl' expr:title='data:top.deleteCommentMsg'>
+            <i class="fa fa-trash" aria-hidden="true"></i>
+        </a>
+    </b:if>
+</span>

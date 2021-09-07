@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-inventare">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <b:section id='pagesmenuwidget' maxwidgets='1' showaddelement='no'>
+                    <b:widget id='PageList9' locked='false' title='Pages - Menu' type='PageList' version='1'>
+                        <b:widget-settings>
+                            <b:widget-setting name='pageListJson'>
+                                <![CDATA[{% include 'navigation_navbar.js' %}]]>
+                            </b:widget-setting>
+                            <b:widget-setting name='homeTitle'>Início</b:widget-setting>
+                        </b:widget-settings>
+                        <b:includable id='main'>
+                            <b:loop values='data:links' var='link'>
+                                <b:if cond='data:link.isCurrentPage'>
+                                    <li class="nav-item">
+                                        <a class="nav-link active" expr:href='data:link.href'><data:link.title /></a>
+                                    </li>
+                                <b:else />
+                                    <li class="nav-item">
+                                        <a class="nav-link" expr:href='data:link.href'><data:link.title /></a>
+                                    </li>
+                                </b:if>
+                            </b:loop>
+                        </b:includable>
+                    </b:widget>
+                </b:section>
+            </ul>
+        </div>
+    </div>
+</nav>

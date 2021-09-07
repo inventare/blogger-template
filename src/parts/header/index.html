@@ -1,0 +1,29 @@
+<header class='loadSmooth header bg-inventare' id='header'>
+    <div class='container-fluid'>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <b:section class='header' id='header' maxwidgets='1' showaddelement='yes'>
+                    <b:widget id='Header1' locked='true' title='Instituto Inventare (Cabeçalho)' type='Header' version='1'>
+                        <b:widget-settings>
+                            <b:widget-setting name='displayUrl'/>
+                            <b:widget-setting name='displayHeight'>0</b:widget-setting>
+                            <b:widget-setting name='sectionWidth'>-1</b:widget-setting>
+                            <b:widget-setting name='useImage'>false</b:widget-setting>
+                            <b:widget-setting name='shrinkToFit'>false</b:widget-setting>
+                            <b:widget-setting name='imagePlacement'>BEHIND</b:widget-setting>
+                            <b:widget-setting name='displayWidth'>0</b:widget-setting>
+                        </b:widget-settings>
+                    
+                        <b:includable id='main'>{% include 'includables/main.html' %}</b:includable>
+                    </b:widget>
+                </b:section>
+            </div>
+
+            <div class="col-12 col-md-6">
+                <b:section class='span9' id='banner' maxwidgets='1' showaddelement='yes'></b:section>
+            </div>
+        </div>
+    </div>
+</header>
+
+{% include 'navigation.html' %}
