@@ -45,6 +45,8 @@
     </script>
 </head>
 
+{% assign lua="oie" %}
+
 <body>
     {% include 'parts/header/index.html' %}
 

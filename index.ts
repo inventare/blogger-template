@@ -1,5 +1,7 @@
-import fs from 'fs';
-import { buildFile } from './builder/regex';
+import TemplateBuilder from './builder/TemplateBuilder';
 
-const output = buildFile('./src/template.xml');
-fs.writeFileSync('./dist/template.xml', output);
+const builder = new TemplateBuilder({
+    inputFilePath: './src/template.xml',
+    outputFilePath: './dist/template.xml',
+});
+builder.build();

@@ -44,12 +44,12 @@
     </b:if>
     
     <b:if cond='data:blog.pageType == &quot;item&quot;'>
-        <div class='post-body entry-content' expr:id='&quot;post-body-&quot; + data:post.id'>
+        <div class='post-body entry-content post-large' expr:id='&quot;post-body-&quot; + data:post.id'>
             <data:post.body/>
         </div>
     <b:else/>
         <b:if cond='data:blog.pageType == &quot;static_page&quot;'>
-            <div class='post-body entry-content' expr:id='&quot;post-body-&quot; + data:post.id'>
+            <div class='post-body entry-content page' expr:id='&quot;post-body-&quot; + data:post.id'>
                 <data:post.body/>
             </div>
         <b:else/>
