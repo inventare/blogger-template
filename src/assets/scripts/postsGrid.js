@@ -14,6 +14,9 @@ function sliderposts(blog) {
         var post = blog.feed.entry[i];
         var postCategory = post.category && post.category.length > 0 ? post.category[0].term : 'Sem Categoria';
         var postTitle = post.title['$t'];
+        if (postTitle.length > 65) {
+            postTitle = postTitle.substring(0, 65) + '...';
+        }
         var postLink = '';
         var postAuthor = post.author[0].name['$t'];
         if (i == blog.feed.entry.length) {
@@ -54,8 +57,10 @@ function sliderposts(blog) {
                 "   <span class=\"remotwa c1\">" + postCategory + "</span>" +
                 "   <div class=\"content\">" + 
                 "       <h3 class=\"entry-title\">" + postTitle + "</h3>" +
-                "       <div class='date-l'><i class='fa fa-calendar'></i>" + publishedDate + "</div>" +
-                "       <div class='date-r'><i class='fa fa-user'></i>" + postAuthor + "</div>" +
+                "       <div class=\"footer-row\">" +
+                "           <div class='date-l'><i class='fa fa-calendar'></i>" + publishedDate + "</div>" +
+                "           <div class='date-r'><i class='fa fa-user'></i>" + postAuthor + "</div>" +
+                "       </div>" +
                 "   </div>" +
                 "</a>"
             );
@@ -66,8 +71,10 @@ function sliderposts(blog) {
                 "   <span class=\"" + spanClass + "\">" + postCategory + "</span>" +
                 "   <div class=\"content\">" + 
                 "       <h4>" + postTitle + "</h4>" +
-                "       <div class='date-l'><i class='fa fa-calendar'></i>" + publishedDate + "</div>" +
-                "       <div class='date-r'><i class='fa fa-user'></i>" + postAuthor + "</div>" +
+                "       <div class=\"footer-row\">" +
+                "           <div class='date-l'><i class='fa fa-calendar'></i>" + publishedDate + "</div>" +
+                "           <div class='date-r'><i class='fa fa-user'></i>" + postAuthor + "</div>" +
+                "       </div>" +
                 "   </div>" +
                 "</a>"
             );

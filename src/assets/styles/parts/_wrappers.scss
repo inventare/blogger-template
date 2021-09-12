@@ -2,11 +2,33 @@
     @include flex-row-stretch;
 
     .sidebar-wrapper {
-        width: 26.15%;
+        width: 30%;
         margin-left: 15px;
+        
+        @media (max-width: 1100px) {
+            width: 40%;
+        }
+
+        @media (max-width: 992px) {
+            width: 100%;
+            order: 1;
+            margin-left: 0px;
+
+            .widget.PopularPosts {
+                display: none;
+            }
+        }
+    }
+
+    @media (max-width: 992px) {
+        flex-direction: column;
     }
 
     .main-wrapper {
         flex: 1;
+
+        @media (max-width: 992px) {
+            order: 2;
+        }
     }
 }
