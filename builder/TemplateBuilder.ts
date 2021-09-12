@@ -29,6 +29,10 @@ export default class TemplateBuilder {
 
     build() {
         const output = this.buildFile(this.options.inputFilePath);
+        const outputDir = path.dirname(this.options.outputFilePath);
+        if (!fs.existsSync(outputDir)) {
+            fs.mkdirSync(outputDir);
+        }
         fs.writeFileSync(this.options.outputFilePath, output);
     }
 

@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "build": "ts-node index.ts"
+  },
   "devDependencies": {
     "@types/node": "^16.7.10",
     "@types/node-sass": "^4.11.2",
