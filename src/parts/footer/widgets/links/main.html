@@ -1,0 +1,16 @@
+<b:if cond='data:title != &quot;&quot;'>
+    <h3 class="fw-light mb-3">
+        <data:title />
+    </h3>
+</b:if>
+<div class='widget-content'>
+    <ul class="list-unstyled">
+        <b:loop values='data:links' var='link'>
+            <li class="mb-2">
+                <a expr:href='data:link.target' class="text-white text-decoration-none fw-light">
+                    <data:link.name />
+                </a>
+            </li>
+        </b:loop>
+    </ul>
+</div>

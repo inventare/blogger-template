@@ -1,0 +1,64 @@
+<div class="footer container-fluid bg-black text-white p-3">
+    <div class="row">
+
+        <div class="col-12 col-lg-4">
+            <b:section class='footer' id='footer1' preferred='yes'>
+                <b:widget id='Label1' locked='false' title='{{ str_footer_labels_widget_title }}' type='Label'>
+                    <b:widget-settings>
+                        <b:widget-setting name='sorting'>FREQUENCY</b:widget-setting>
+                        <b:widget-setting name='display'>CLOUD</b:widget-setting>
+                        <b:widget-setting name='selectedLabelsList'/>
+                        <b:widget-setting name='showType'>ALL</b:widget-setting>
+                        <b:widget-setting name='showFreqNumbers'>false</b:widget-setting>
+                    </b:widget-settings>
+                    
+                    <b:includable id='main'>
+                        {% include 'widgets/label/main.html' %}
+                    </b:includable>
+                </b:widget>
+            </b:section>
+        </div>
+
+        <div class="col-12 col-lg-4">
+            <b:section class="footer" id="footer2" preferred="yes">
+                <b:widget id='HTML1' locked='false' title='{{ str_footer_social_widget_title }}' type='HTML'>
+                    <b:widget-settings>
+                        <b:widget-setting name='content'><![CDATA[{% include 'widgets/social/content.html' %}]]></b:widget-setting>
+                    </b:widget-settings>
+                    
+                    <b:includable id='main'>
+                        <!-- only display title if it's non-empty -->
+                        <b:if cond='data:title != &quot;&quot;'>
+                            <h3 class="fw-light mb-3">
+                                <data:title />
+                            </h3>
+                        </b:if>
+                        
+                        <div class='widget-content'>
+                            <data:content/>
+                        </div>
+                    </b:includable>
+                </b:widget>
+            </b:section>
+        </div>
+
+        <div class="col-12 col-lg-4">
+            <b:section class="footer" id="footer3" preferred="yes">
+                <b:widget id='LinkList1' locked='false' title='{{ str_footer_links_widget_title }}' type='LinkList'>
+                    <b:widget-settings>
+                        <b:widget-setting name='sorting'>NONE</b:widget-setting>
+                        {% include 'widgets/links/list.html' %}
+                    </b:widget-settings>
+                    
+                    <b:includable id='main'>
+                        {% include 'widgets/links/main.html' %}
+                    </b:includable>
+                </b:widget>
+            </b:section>
+        </div>
+        
+    </div>
+</div>
+<div class='bottom-thing bg-black text-white p-3 text-center'>
+    {{ str_footer_credits }}
+</div>
