@@ -1,0 +1,28 @@
+<b:section class='sidebar' id='sidebar' showaddelement='yes'>
+    <b:widget id='PopularPosts2' locked='false' title='{{ str_popular_widget_title }}' type='PopularPosts' version='1'>
+        <b:widget-settings>
+            <b:widget-setting name='numItemsToShow'>5</b:widget-setting>
+            <b:widget-setting name='showThumbnails'>true</b:widget-setting>
+            <b:widget-setting name='showSnippets'>true</b:widget-setting>
+            <b:widget-setting name='timeRange'>LAST_YEAR</b:widget-setting>
+        </b:widget-settings>
+        
+        <b:includable id='main'>
+            {% include 'widgets/popular/main.html' %}
+        </b:includable>
+    </b:widget>
+
+    <b:widget id='Label2' locked='false' title='{{ str_labels_widget_title }}' type='Label' version='1'>
+        <b:widget-settings>
+            <b:widget-setting name='sorting'>ALPHA</b:widget-setting>
+            <b:widget-setting name='display'>LIST</b:widget-setting>
+            <b:widget-setting name='selectedLabelsList'/>
+            <b:widget-setting name='showType'>ALL</b:widget-setting>
+            <b:widget-setting name='showFreqNumbers'>true</b:widget-setting>
+        </b:widget-settings>
+
+        <b:includable id='main'>
+            {% include 'widgets/labels/main.html' %}
+        </b:includable>
+    </b:widget>
+</b:section>

@@ -1,3 +1,4 @@
+{% include 'i18n/index.html' %}
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html>
 <html b:css="false" b:version='2' class='v2' expr:dir='data:blog.languageDirection' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
@@ -10,7 +11,7 @@
             <b:if cond='data:blog.pageType != &quot;error_page&quot;'>
                 <data:blog.pageName/> | <data:blog.title/>
             <b:else/>
-                Page Not Found | <data:blog.title/> 
+                {{ str_page_not_found }} | <data:blog.title/> 
             </b:if>
         </b:if>
     </title>
@@ -45,8 +46,6 @@
     </script>
 </head>
 
-{% assign lua="oie" %}
-
 <body>
     {% include 'parts/header/index.html' %}
 
@@ -67,133 +66,11 @@
             <div class='main-wrapper'>    
                 {% include 'parts/main/index.html' %}
             </div>
-                   <div class='sidebar-wrapper'>
-                     <b:section class='sidebar' id='sidebar' showaddelement='yes'>
-                       <b:widget id='PopularPosts2' locked='false' title='Popular Posts' type='PopularPosts' version='1'>
-                         <b:widget-settings>
-                           <b:widget-setting name='numItemsToShow'>10</b:widget-setting>
-                           <b:widget-setting name='showThumbnails'>true</b:widget-setting>
-                           <b:widget-setting name='showSnippets'>true</b:widget-setting>
-                           <b:widget-setting name='timeRange'>LAST_YEAR</b:widget-setting>
-                         </b:widget-settings>
-                         <b:includable id='main'>
-  <b:if cond='data:title'><h2><data:title/></h2></b:if>
-  <div class='widget-content popular-posts'>
-    <ul>
-      <b:loop values='data:posts' var='post'>
-      <li>
-        <b:if cond='data:showThumbnails == &quot;false&quot;'>
-          <b:if cond='data:showSnippets == &quot;false&quot;'>
-            <!-- (1) No snippet/thumbnail -->
-            <a expr:href='data:post.href'><data:post.title/></a>
-          <b:else/>
-            <!-- (2) Show only snippets -->
-            <div class='item-title'><a expr:href='data:post.href'><data:post.title/></a></div>
-            <div class='item-snippet'><data:post.snippet/></div>
-          </b:if>
-        <b:else/>
-          <b:if cond='data:showSnippets == &quot;false&quot;'>
-            <!-- (3) Show only thumbnails -->
-            <div class='item-thumbnail-only'>
-              <b:if cond='data:post.thumbnail'>
-                <div class='item-thumbnail'>
-                  <a expr:href='data:post.href' target='_blank'>
-                    <img alt='' border='0' expr:height='data:thumbnailSize' expr:src='data:post.thumbnail' expr:width='data:thumbnailSize'/>
-                  </a>
-                </div>
-              </b:if>
-              <div class='item-title'><a expr:href='data:post.href'><data:post.title/></a></div>
+            <div class='sidebar-wrapper'>
+                {% include 'parts/sidebar/index.html' %}
             </div>
-            <div style='clear: both;'/>
-          <b:else/>
-            <!-- (4) Show snippets and thumbnails -->
-            <div class='item-content'>
-              <b:if cond='data:post.thumbnail'>
-                <div class='item-thumbnail'>
-                  <a expr:href='data:post.href' target='_blank'>
-                    <img alt='' border='0' expr:height='data:thumbnailSize' expr:src='data:post.thumbnail' expr:width='data:thumbnailSize'/>
-                  </a>
-                </div>
-              </b:if>
-              <div class='item-title'><a expr:href='data:post.href'><data:post.title/></a></div>
-              <div class='item-snippet'><data:post.snippet/></div>
-            </div>
-            <div style='clear: both;'/>
-          </b:if>
-        </b:if>
-      </li>
-      </b:loop>
-    </ul>
-
-  </div>
-</b:includable>
-                       </b:widget>
-                       <b:widget id='HTML4' locked='false' title='Blogger templates' type='HTML'>
-                         <b:widget-settings>
-                           <b:widget-setting name='content'/>
-                         </b:widget-settings>
-                         <b:includable id='main'>
-  <!-- only display title if it's non-empty -->
-  <b:if cond='data:title != &quot;&quot;'>
-    <h2 class='title'><data:title/></h2>
-  </b:if>
-  <div class='widget-content'>
-    <data:content/>
-  </div>
-
-  <b:include name='quickedit'/>
-</b:includable>
-                       </b:widget>
-                       <b:widget id='Label2' locked='false' title='Labels' type='Label' version='1'>
-                         <b:widget-settings>
-                           <b:widget-setting name='sorting'>ALPHA</b:widget-setting>
-                           <b:widget-setting name='display'>LIST</b:widget-setting>
-                           <b:widget-setting name='selectedLabelsList'/>
-                           <b:widget-setting name='showType'>ALL</b:widget-setting>
-                           <b:widget-setting name='showFreqNumbers'>false</b:widget-setting>
-                         </b:widget-settings>
-                         <b:includable id='main'>
-  <b:if cond='data:title'>
-    <h2><data:title/></h2>
-  </b:if>
-  <div expr:class='&quot;widget-content &quot; + data:display + &quot;-label-widget-content&quot;'>
-    <b:if cond='data:display == &quot;list&quot;'>
-      <ul>
-      <b:loop values='data:labels' var='label'>
-        <li>
-          <b:if cond='data:blog.url == data:label.url'>
-            <span expr:dir='data:blog.languageDirection'><data:label.name/></span>
-          <b:else/>
-            <a expr:dir='data:blog.languageDirection' expr:href='data:label.url'><data:label.name/></a>
-          </b:if>
-          <b:if cond='data:showFreqNumbers'>
-            <span dir='ltr'>(<data:label.count/>)</span>
-          </b:if>
-        </li>
-      </b:loop>
-      </ul>
-    <b:else/>
-      <b:loop values='data:labels' var='label'>
-        <span expr:class='&quot;label-size label-size-&quot; + data:label.cssSize'>
-          <b:if cond='data:blog.url == data:label.url'>
-            <span expr:dir='data:blog.languageDirection'><data:label.name/></span>
-          <b:else/>
-            <a expr:dir='data:blog.languageDirection' expr:href='data:label.url'><data:label.name/></a>
-          </b:if>
-          <b:if cond='data:showFreqNumbers'>
-            <span class='label-count' dir='ltr'>(<data:label.count/>)</span>
-          </b:if>
-        </span>
-      </b:loop>
-    </b:if>
-  </div>
-</b:includable>
-                       </b:widget>
-                     </b:section>
-                </div><!-- /sidebar-wrapper -->
-<div class='clr'/>
-            </div><!-- /ct-wrapper -->
-            </div><!-- /outer-wrapper -->
+        </div>
+    </div>
 
 <div class='tc_footerline'/>
 <div id='footer'>

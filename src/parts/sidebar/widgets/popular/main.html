@@ -1,0 +1,69 @@
+<b:if cond='data:title'>
+    <h3 class="fw-light mb-3 border-bottom border-light">
+        <data:title />
+    </h3>
+</b:if>
+<div class='widget-content popular-posts mb-5'>
+    <ul class="list-unstyled">
+        <b:loop values='data:posts' var='post'>
+            <li class="mb-4">
+                <b:if cond='data:showThumbnails == &quot;false&quot;'>
+                    <b:if cond='data:showSnippets == &quot;false&quot;'>
+                        <!-- (1) No snippet/thumbnail -->
+                        <a expr:href='data:post.href'>
+                            <data:post.title />
+                        </a>
+                    <b:else />
+                        <!-- (2) Show only snippets -->
+                        <div class='item-title'>
+                            <a expr:href='data:post.href'>
+                                <data:post.title />
+                            </a>
+                        </div>
+                        <div class='item-snippet'>
+                            <data:post.snippet />
+                        </div>
+                    </b:if>
+                <b:else />
+                    <b:if cond='data:showSnippets == &quot;false&quot;'>
+                        <!-- (3) Show only thumbnails -->
+                        <div class='item-thumbnail-only'>
+                            <b:if cond='data:post.thumbnail'>
+                                <div class='item-thumbnail'>
+                                    <a expr:href='data:post.href' target='_blank'>
+                                        <img alt='' border='0' expr:height='data:thumbnailSize'
+                                            expr:src='data:post.thumbnail' expr:width='data:thumbnailSize' />
+                                    </a>
+                                </div>
+                            </b:if>
+                            <div class='item-title'><a expr:href='data:post.href'>
+                                    <data:post.title />
+                                </a></div>
+                        </div>
+                    <b:else />
+                        <!-- (4) Show snippets and thumbnails -->
+                        <div class='item-content d-flex flex-row'>
+                            <b:if cond='data:post.thumbnail'>
+                                <div class='item-thumbnail'>
+                                    <a expr:href='data:post.href' target='_blank'>
+                                        <img alt='' border='0' expr:src='data:post.thumbnail' />
+                                    </a>
+                                </div>
+                            </b:if>
+                            <div class="item-info flex-fill d-flex flex-column align-items-stretch ps-3">
+                                <div class='item-title'>
+                                    <a expr:href='data:post.href' class="text-decoration-none text-black">
+                                        <data:post.title />
+                                    </a>
+                                </div>
+                                <div class='item-snippet fw-light fs-7 text-muted'>
+                                    <data:post.snippet />
+                                </div>
+                            </div>
+                        </div>
+                    </b:if>
+                </b:if>
+            </li>
+        </b:loop>
+    </ul>
+</div>

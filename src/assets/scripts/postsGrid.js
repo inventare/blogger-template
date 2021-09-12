@@ -74,5 +74,5 @@ function sliderposts(blog) {
         }
         j += 1;
     }
-    document.write("<a href='/search' class='feauterdButton'>Ver Todos os Artigos</a>");
+    document.write("<a href='/search' class='feauterdButton'>{{ str_see_all_articles }}</a>");
 }

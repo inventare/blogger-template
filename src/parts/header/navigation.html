@@ -11,7 +11,7 @@
                             <b:widget-setting name='pageListJson'>
                                 <![CDATA[{% include 'navigation_navbar.js' %}]]>
                             </b:widget-setting>
-                            <b:widget-setting name='homeTitle'>Início</b:widget-setting>
+                            <b:widget-setting name='homeTitle'>{{ str_page_home }}</b:widget-setting>
                         </b:widget-settings>
                         <b:includable id='main'>
                             <b:loop values='data:links' var='link'>

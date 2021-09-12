@@ -1,1 +1,1 @@
-{'home': {'href': 'http://institutoinventare.blogspot.com/', 'title': 'Início', 'position': 0}}
+{'home': {'href': 'http://institutoinventare.blogspot.com/', 'title': '{{ str_page_home }}', 'position': 0}}

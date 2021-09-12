@@ -1,0 +1,44 @@
+<b:if cond='data:title'>
+    <h3 class="fw-light mb-3 border-bottom border-light">
+        <data:title />
+    </h3>
+</b:if>
+<div expr:class='&quot;widget-content &quot; + data:display + &quot;-label-widget-content&quot;'>
+    <b:if cond='data:display == &quot;list&quot;'>
+        <ul class="list-unstyled">
+            <b:loop values='data:labels' var='label'>
+                <li>
+                    <a class="label-item text-decoration-none text-primary position-relative pe-2" expr:dir='data:blog.languageDirection' expr:href='data:label.url'>
+                        <data:label.name />
+                        <b:if cond='data:showFreqNumbers'>
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary">
+                                <b:if cond='data:post.numComments == 1'>
+                                    <data:label.count /> {{ str_labels_one_post }}
+                                <b:else />
+                                    <data:label.count /> {{ str_labels_multiple_posts }}
+                                </b:if>
+                            </span>
+                        </b:if>
+                    </a>
+                </li>
+            </b:loop>
+        </ul>
+    <b:else />
+        <b:loop values='data:labels' var='label'>
+            <span expr:class='&quot;label-size label-size-&quot; + data:label.cssSize'>
+                <b:if cond='data:blog.url == data:label.url'>
+                    <span expr:dir='data:blog.languageDirection'>
+                        <data:label.name />
+                    </span>
+                    <b:else />
+                    <a expr:dir='data:blog.languageDirection' expr:href='data:label.url'>
+                        <data:label.name />
+                    </a>
+                </b:if>
+                <b:if cond='data:showFreqNumbers'>
+                    <span class='label-count' dir='ltr'>(<data:label.count />)</span>
+                </b:if>
+            </span>
+        </b:loop>
+    </b:if>
+</div>

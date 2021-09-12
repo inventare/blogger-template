@@ -1,5 +1,5 @@
 <b:section class='content' id='content' showaddelement='no'>
-    <b:widget id='Blog1' locked='true' title='Postagens no blog' type='Blog' version='1'>
+    <b:widget id='Blog1' locked='true' title='{{ str_posts_widget_title }}' type='Blog' version='1'>
         <b:widget-settings>
             <b:widget-setting name='showDateHeader'>false</b:widget-setting>
             <b:widget-setting name='style.textcolor'>#bca772</b:widget-setting>
@@ -12,7 +12,7 @@
             <b:widget-setting name='style.linkcolor'>#3a3a3a</b:widget-setting>
             <b:widget-setting name='style.unittype'>TextAndImage</b:widget-setting>
             <b:widget-setting name='style.bgcolor'>#ffffff</b:widget-setting>
-            <b:widget-setting name='timestampLabel'>Postado em</b:widget-setting>
+            <b:widget-setting name='timestampLabel'>{{ str_posts_widget_timestamp_label }}</b:widget-setting>
             <b:widget-setting name='reactionsLabel'/>
             <b:widget-setting name='showAuthorProfile'>false</b:widget-setting>
             <b:widget-setting name='style.layout'>1x1</b:widget-setting>

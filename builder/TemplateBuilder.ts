@@ -71,7 +71,10 @@ export default class TemplateBuilder {
         return doc
             .split('\n')
             .map((line) => line.trim())
+            .filter((line) => line != '')
             .map((line) => this.processLine(line, cwd))
+            .map((line) => line.trim())
+            .filter((line) => line != '')
             .join('\n');
     }
 
@@ -80,12 +83,14 @@ export default class TemplateBuilder {
             throw new Error('File not found!');
         }
         const buffer = fs.readFileSync(filePath);
-        const cwd = path.dirname(filePath);
         let result = buffer.toString('utf-8');
+
+        const cwd = path.dirname(filePath);
         const ext = path.extname(filePath).toLowerCase();
+
         if (Object.prototype.hasOwnProperty.call(FileTypeProcessor, ext)) {
             const minify = this.options.minifyExtensions.includes(ext);
-            result = FileTypeProcessor[ext](result, cwd, minify);
+            result = FileTypeProcessor[ext](result, cwd, (str, cwd) => this.buildText(str, cwd), minify);
         } else {
             result = this.buildText(result, cwd);
         }

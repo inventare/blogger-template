@@ -92,9 +92,9 @@
                                 <i class='fa fa-comment-o'></i>
                                 <span>
                                     <a expr:href='data:post.addCommentUrl' expr:onclick='data:post.addCommentOnclick'>
-                                        <b:if cond='data:post.numComments == 0'>Fazer um comentário</b:if>
-                                        <b:if cond='data:post.numComments == 1'>1 Comentário</b:if>
-                                        <b:if cond='data:post.numComments &gt;= 2'><data:post.numComments/> Comentários</b:if>
+                                        <b:if cond='data:post.numComments == 0'>{{ str_posts_widget_make_a_comment }}</b:if>
+                                        <b:if cond='data:post.numComments == 1'>{{ str_posts_widget_one_comment }}</b:if>
+                                        <b:if cond='data:post.numComments &gt;= 2'><data:post.numComments/> {{ str_posts_widget_multiple_comements }}</b:if>
                                     </a>
                                 </span>
                             </li>
@@ -103,7 +103,7 @@
                     <!-- Post Meta End -->
                     <div class='post_excerpt' expr:id='&quot;r&quot; + data:post.id'></div>
                     <div class="d-flex flex-row justify-content-end">
-                        <a class='btn btn-inventare text-white' expr:href='data:post.url'>Continuar Lendo</a>
+                        <a class='btn btn-inventare text-white' expr:href='data:post.url'>{{ str_posts_widget_continue_reading }}</a>
                     </div>
                 </div>
             </div>
@@ -143,12 +143,9 @@
             </div>
 
             <div class='about_author_module'>
-                <h3 class='about_author_title'>Sobre o Autor</h3>
+                <h3 class='about_author_title'>{{ str_posts_widget_about_author }}</h3>
                 <div class='about_author_content'>
-                    <b:if cond='data:post.author == &quot;Eduardo Jose&quot;'>
-                        {% include 'authors/eduardo.html' %}
-                    </b:if>
-                    <div class='clr'></div>
+                    {% include 'authors/index.html' %}
                 </div>
             </div>
         </b:if>
