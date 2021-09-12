@@ -41,6 +41,18 @@ npm run build
 
 Then, now, after the build process finished, you can get the template (**XML**) file in the `/dist` path. Then, upload it to the Blogger.
 
+## Not Complete Yet
+
+That i'm commented in the introdution, this template is **designed to be edited in the code and not in the blogger visual tools** and, some parts of that is not maintened by me because i not use this or because i'm not get time to work in this part for now. A list of not supported or not customized or any thing of type:
+
+- [ ] Comments Block
+- ...
+
+## Roadmap to Future
+
+- [ ] Complete Template Engine to Make Blogger Templates By Code more Easy
+- [ ] Simulate Blogger Environment to Develop a Template By Code in Localhost
+
 ## Customization
 
 Some customizations can be made in this template, and some of there are listed here.
